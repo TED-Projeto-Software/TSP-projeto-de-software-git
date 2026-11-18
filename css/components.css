@@ -880,3 +880,9 @@
     background: linear-gradient(90deg, var(--color-pink), var(--color-lavender-dark));
     transition: width 350ms ease;
 }
+
+.calendar-add-task {
+    width: 100%;
+    justify-content: center;
+    margin-top: 16px;
+}
