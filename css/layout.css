@@ -136,8 +136,12 @@ a {
 }
 
 .sidebar-label {
-    margin-bottom: 13px;
-    padding-left: 11px;
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-muted);
 }
 
 .navigation {
