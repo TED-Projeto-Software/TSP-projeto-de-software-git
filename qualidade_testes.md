@@ -2,7 +2,7 @@ https://ted-projeto-software.github.io/TSP-projeto-de-software-git/#inicio este 
 
 - Criado pela Ana
 - Revisado pelo Maotse
-- Foi verificado a praticidade do projeto(DevCafé), no momento, sem correções.
+- Foi verificado a praticidade do projeto(DevCafé).
 
 --> O objetivo do projeto é a criação e organização de uma rotina do seu dia a dia.
 
@@ -25,4 +25,6 @@ Acessar o site	Aprovado	A página foi carregada.
 	Utilizar calendário	- Aprovado
 	Criar anotação no mural	- Aprovado
 	Ativar modo escuro	- Aprovado
-  Exportar e importar backup - Não executado, sem teste
+    Exportar e importar backup - Não executado, sem teste
+
+	
