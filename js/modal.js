@@ -7,11 +7,15 @@ export function openModal(task = null) {
     form.reset();
 
     document.querySelector("#task-id").value = task?.id || "";
-
     titleInput.value = task?.title || "";
-
     document.querySelector("#task-description").value =
         task?.description || "";
+
+    document.querySelector("#task-category").value =
+        task?.category || "other";
+
+    document.querySelector("#task-due-date").value =
+        task?.dueDate || "";
 
     document.querySelector("#task-priority").value =
         task?.priority || "medium";
@@ -22,13 +26,9 @@ export function openModal(task = null) {
     document.querySelector("#dialog-title").textContent =
         task ? "Editar tarefa" : "Nova tarefa";
 
-    if (!dialog.open) {
-        dialog.showModal();
-    }
+    dialog.showModal();
 
-    requestAnimationFrame(() => {
-        titleInput.focus();
-    });
+    requestAnimationFrame(() => titleInput.focus());
 }
 
 export function closeModal() {
