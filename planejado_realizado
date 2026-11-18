@@ -1,0 +1,147 @@
+# Planejado x Realizado
+
+## Objetivo
+
+Este registro apresenta uma comparação entre o planejamento inicial da equipe e o que realmente aconteceu durante o desenvolvimento do projeto.
+
+O objetivo é acompanhar as diferenças entre o que havia sido previsto e a execução real das atividades.
+
+## Planejamento inicial
+
+No início do projeto, as atividades foram divididas entre os integrantes de acordo com os papéis definidos no TSP.
+
+### Victor Medeiros
+
+Papel técnico: Líder de Projeto  
+Papel de gestão: Team Leader
+
+Atividades planejadas:
+
+- Acompanhar o andamento geral do projeto.
+- Organizar a comunicação entre os integrantes.
+- Acompanhar as tarefas da equipe.
+- Registrar as reuniões e os próximos passos.
+- Auxiliar na organização da apresentação.
+
+### Isabelli Bressan
+
+Papel técnico: Desenvolvedora  
+Papel de gestão: Planning Manager
+
+Atividades planejadas:
+
+- Desenvolver a lógica do sistema.
+- Acompanhar o cronograma.
+- Organizar o planejamento das funcionalidades.
+- Comparar o andamento real com o planejamento.
+- Apoiar a organização das tarefas no Kanban.
+
+### Anamaria
+
+Papel técnico: Web Designer / Frontend  
+Papel de gestão: Support Manager
+
+Atividades planejadas:
+
+- Desenvolver a interface do sistema.
+- Organizar o visual das páginas.
+- Criar os elementos de interação.
+- Apoiar a organização do ambiente e do repositório.
+
+### Maotse
+
+Papel técnico: Analista de Qualidade e Teste  
+Papel de gestão: Quality Manager
+
+Atividades planejadas:
+
+- Revisar o sistema.
+- Criar e executar os testes.
+- Registrar os resultados.
+- Identificar possíveis problemas.
+- Acompanhar as correções realizadas.
+
+## O que foi realizado
+
+Durante o desenvolvimento, a execução aconteceu de maneira diferente do que havia sido previsto inicialmente.
+
+Anamaria conseguiu desenvolver a interface em um período menor do que o esperado e também implementou a lógica necessária para que as funcionalidades do sistema fossem interativas.
+
+Com isso, uma parte que inicialmente seria dividida entre frontend e desenvolvimento acabou sendo realizada de maneira concentrada durante o desenvolvimento da interface.
+
+O produto ficou funcional e foi publicado no GitHub Pages antes da conclusão de todas as etapas de documentação do projeto.
+
+A partir disso, o grupo reorganizou as atividades restantes.
+
+### Victor Medeiros
+
+Passou a concentrar suas atividades no acompanhamento final do grupo, organização dos registros de reunião, conferência das atividades e preparação da apresentação.
+
+### Isabelli Bressan
+
+Passou a concentrar suas atividades no acompanhamento do planejamento, comparação entre o planejado e o realizado, organização da documentação, atualização do README e apoio na finalização dos registros do projeto.
+
+### Anamaria
+
+Além da interface inicialmente planejada, realizou também a implementação da lógica necessária para o funcionamento do sistema e participou da publicação do produto.
+
+### Maotse
+
+Assumiu a etapa de qualidade e testes do sistema já desenvolvido.
+
+Foi criado o arquivo `quality_tests.md` para registrar as verificações realizadas, resultados obtidos, problemas encontrados e possíveis correções.
+
+## Comparação
+
+| Atividade | Planejado | Realizado | Situação |
+| --- | --- | --- | --- |
+| Definição das funcionalidades | Definir antes do desenvolvimento | Funcionalidades definidas e utilizadas como base do projeto | Concluído |
+| Interface do sistema | Anamaria | Desenvolvida por Anamaria | Concluído |
+| Lógica do sistema | Isabelli | Implementada durante o desenvolvimento realizado por Anamaria | Concluído |
+| Publicação do sistema | Realizar se fosse possível | Sistema publicado no GitHub Pages | Concluído |
+| Planejamento e acompanhamento | Isabelli | Em organização e documentação final | Em andamento |
+| Registro das reuniões | Victor | Em organização final | Em andamento |
+| Qualidade e testes | Maotse | `quality_tests.md` criado e testes em andamento | Em andamento |
+| PSP individual | Cada integrante | Preenchimento individual | Em andamento |
+| Retrospectiva | Equipe | Será concluída após os registros finais | A fazer |
+| Apresentação | Equipe | Preparação final | A fazer |
+
+## Impacto no planejamento
+
+A principal diferença entre o planejamento e a execução foi a velocidade do desenvolvimento do produto.
+
+A interface e a lógica foram concluídas antes de algumas etapas de documentação e acompanhamento.
+
+Isso fez com que fosse necessário reorganizar as atividades restantes da equipe.
+
+Em vez de continuar dividindo tarefas de desenvolvimento que já estavam prontas, os integrantes passaram a se concentrar nas atividades que ainda eram necessárias para concluir o processo do TSP:
+
+- acompanhamento;
+- documentação;
+- qualidade;
+- testes;
+- PSP individual;
+- retrospectiva;
+- preparação da apresentação.
+
+## Situação atual
+
+O produto está desenvolvido e publicado.
+
+Neste momento, a equipe está concentrada na conclusão das evidências do processo de trabalho, incluindo:
+
+- atualização do README;
+- registro das reuniões;
+- testes e qualidade;
+- PSP individual;
+- retrospectiva;
+- atualização final do Kanban;
+- preparação da apresentação.
+
+## Conclusão
+
+A execução do projeto não ocorreu exatamente da forma prevista no planejamento inicial, principalmente porque o desenvolvimento técnico avançou mais rapidamente.
+
+Essa mudança exigiu uma redistribuição das atividades finais.
+
+O registro dessa diferença permite mostrar não apenas o produto desenvolvido, mas também como a equipe acompanhou e adaptou seu processo de trabalho durante o projeto.
