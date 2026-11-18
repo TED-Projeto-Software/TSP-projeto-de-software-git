@@ -3,7 +3,7 @@ const dialog = document.querySelector("#task-dialog");
 const form = document.querySelector("#task-form");
 const titleInput = document.querySelector("#task-title");
 
-export function openModal(task = null) {
+export function openModal(task = null, selectedDueDate = "") {
     form.reset();
 
     document.querySelector("#task-id").value = task?.id || "";
