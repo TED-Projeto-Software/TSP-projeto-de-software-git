@@ -494,6 +494,69 @@ const THEME_STORAGE_KEY = "devcafe-theme";
 function applyTheme(theme) {
     const isDark = theme === "dark";
 
+    document.documentElement.dataset.theme = isDark ? "dark" : "light";
+
+    const toggle = document.querySelector("#theme-toggle");
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+    if (toggle) {
+        toggle.setAttribute("aria-pressed", String(isDark));
+        toggle.setAttribute(
+            "aria-label",
+            isDark ? "Ativar modo claro" : "Ativar modo escuro"
+        );
+
+        toggle.title = isDark ? "Ativar modo claro" : "Ativar modo escuro";
+
+        const icon = toggle.querySelector(".theme-toggle-icon");
+        const label = toggle.querySelector(".theme-toggle-label");
+
+        if (icon) icon.textContent = isDark ? "☀" : "☾";
+        if (label) label.textContent = isDark ? "Modo claro" : "Modo escuro";
+    }
+
+    if (metaThemeColor) {
+        metaThemeColor.setAttribute(
+            "content",
+            isDark ? "#171522" : "#fff7fa"
+        );
+    }
+}
+
+function initializeTheme() {
+    let savedTheme = "light";
+
+    try {
+        savedTheme = localStorage.getItem(THEME_STORAGE_KEY) || "light";
+    } catch (error) {
+        console.warn("Não foi possível recuperar a preferência de tema:", error);
+    }
+
+    applyTheme(savedTheme);
+
+    document.querySelector("#theme-toggle")?.addEventListener("click", () => {
+        const nextTheme =
+            document.documentElement.dataset.theme === "dark"
+                ? "light"
+                : "dark";
+
+        applyTheme(nextTheme);
+
+        try {
+            localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+        } catch (error) {
+            console.warn("Não foi possível salvar a preferência de tema:", error);
+        }
+    });
+}
+
+
+    
+const THEME_STORAGE_KEY = "devcafe-theme";
+
+function applyTheme(theme) {
+    const isDark = theme === "dark";
+
     document.documentElement.dataset.theme = isDark
         ? "dark"
         : "light";
