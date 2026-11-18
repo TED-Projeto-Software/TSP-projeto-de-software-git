@@ -1,4 +1,3 @@
-
 import { escapeHTML } from "./utils.js";
 
 const calendarGrid = document.querySelector("#calendar-grid");
