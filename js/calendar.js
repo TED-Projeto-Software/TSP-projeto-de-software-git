@@ -25,7 +25,9 @@ function formatDate(dateKey) {
 }
 
 function renderDayTasks(tasks) {
-    const dayTasks = tasks.filter(task => task.dueDate === selectedDate);
+    const dayTasks = tasks.filter(
+        task => task.dueDate === selectedDate
+    );
 
     selectedDateLabel.textContent = formatDate(selectedDate);
 
@@ -43,17 +45,21 @@ function renderDayTasks(tasks) {
             <span class="calendar-task-dot"></span>
             <div>
                 <strong>${escapeHTML(task.title)}</strong>
-                <small>${escapeHTML(task.status === "completed"
-                    ? "Concluída"
-                    : task.status === "progress"
-                        ? "Em andamento"
-                        : "Pendente")}</small>
+                <small>${escapeHTML(
+                    task.status === "completed"
+                        ? "Concluída"
+                        : task.status === "progress"
+                            ? "Em andamento"
+                            : "Pendente"
+                )}</small>
             </div>
         </article>
     `).join("");
 }
 
-export function renderCalendar(tasks) {
+export function renderCalendar(tasks = []) {
+    if (!calendarGrid || !monthLabel) return;
+
     const year = currentMonth.getFullYear();
     const month = currentMonth.getMonth();
 
@@ -62,19 +68,32 @@ export function renderCalendar(tasks) {
         year: "numeric"
     }).format(currentMonth);
 
-    const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstWeekday =
+        (new Date(year, month, 1).getDay() + 6) % 7;
+
+    const daysInMonth =
+        new Date(year, month + 1, 0).getDate();
+
     const todayKey = toDateKey(new Date());
 
     let daysHTML = "";
 
+    // Espaços antes do primeiro dia do mês
     for (let i = 0; i < firstWeekday; i++) {
-        daysHTML += `<span class="calendar-empty-cell"></span>`;
+        daysHTML += `
+            <span class="calendar-empty-cell"></span>
+        `;
     }
 
+    // Dias do mês
     for (let day = 1; day <= daysInMonth; day++) {
-        const dateKey = toDateKey(new Date(year, month, day));
-        const hasTasks = tasks.some(task => task.dueDate === dateKey);
+        const dateKey = toDateKey(
+            new Date(year, month, day)
+        );
+
+        const hasTasks = tasks.some(
+            task => task.dueDate === dateKey
+        );
 
         const classes = [
             "calendar-day",
@@ -92,25 +111,35 @@ export function renderCalendar(tasks) {
                 aria-pressed="${dateKey === selectedDate}"
             >
                 ${day}
-                ${hasTasks ? '<span class="calendar-day-indicator"></span>' : ""}
+                ${hasTasks
+                    ? '<span class="calendar-day-indicator"></span>'
+                    : ""}
             </button>
         `;
     }
 
     calendarGrid.innerHTML = daysHTML;
+
     renderDayTasks(tasks);
 }
 
 export function initializeCalendar() {
-    document.querySelector("#calendar-prev").addEventListener("click", () => {
+    const previousButton = document.querySelector("#calendar-prev");
+    const nextButton = document.querySelector("#calendar-next");
+
+    previousButton.addEventListener("click", () => {
         currentMonth.setMonth(currentMonth.getMonth() - 1);
+
         selectedDate = toDateKey(currentMonth);
+
         renderCalendar(window.devCafeTasks || []);
     });
 
-    document.querySelector("#calendar-next").addEventListener("click", () => {
+    nextButton.addEventListener("click", () => {
         currentMonth.setMonth(currentMonth.getMonth() + 1);
+
         selectedDate = toDateKey(currentMonth);
+
         renderCalendar(window.devCafeTasks || []);
     });
 
@@ -120,9 +149,12 @@ export function initializeCalendar() {
         if (!button) return;
 
         selectedDate = button.dataset.date;
+
         renderCalendar(window.devCafeTasks || []);
     });
-    export function getSelectedCalendarDate() {
-    return selectedDate;
 }
+
+// IMPORTANTE: esta função fica fora de initializeCalendar!
+export function getSelectedCalendarDate() {
+    return selectedDate;
 }
