@@ -390,9 +390,100 @@ function exportBackup() {
     }
 }
 
+
+function isValidBackup(backup) {
+    if (
+        !backup ||
+        backup.application !== "DevCafé" ||
+        backup.version !== 1 ||
+        !Array.isArray(backup.tasks) ||
+        !Array.isArray(backup.notes)
+    ) {
+        return false;
+    }
+
+    const validStatuses = ["pending", "progress", "completed"];
+    const validPriorities = ["low", "medium", "high"];
+    const validCategories = [
+        "study", "work", "personal", "project", "other"
+    ];
+    const validColors = ["pink", "purple", "yellow", "blue"];
+
+    const validTasks = backup.tasks.every(task =>
+        task &&
+        typeof task.id === "string" &&
+        typeof task.title === "string" &&
+        typeof task.description === "string" &&
+        validStatuses.includes(task.status) &&
+        validPriorities.includes(task.priority) &&
+        validCategories.includes(task.category || "other") &&
+        typeof (task.dueDate || "") === "string"
+    );
+
+    const validNotes = backup.notes.every(note =>
+        note &&
+        typeof note.id === "string" &&
+        typeof note.title === "string" &&
+        typeof note.content === "string" &&
+        validColors.includes(note.color)
+    );
+
+    return validTasks && validNotes;
+}
+
+async function importBackup(event) {
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    try {
+        const content = await file.text();
+        const backup = JSON.parse(content);
+
+        if (!isValidBackup(backup)) {
+            showNotification("Arquivo inválido ou incompatível com o DevCafé.");
+            return;
+        }
+
+        const confirmed = window.confirm(
+            "Deseja restaurar este backup?\n\n" +
+            "As tarefas e anotações atuais serão substituídas " +
+            "pelos dados do arquivo selecionado."
+        );
+
+        if (!confirmed) return;
+
+        saveTasks(backup.tasks);
+
+        localStorage.setItem(
+            "devcafe-notes",
+            JSON.stringify(backup.notes)
+        );
+
+        showNotification("Backup restaurado! Atualizando o DevCafé... ♡");
+
+        window.location.reload();
+
+    } catch (error) {
+        console.error("Erro ao importar backup:", error);
+        showNotification("Não foi possível importar esse arquivo.");
+    } finally {
+        event.target.value = "";
+    }
+}
+
+
 function initializeEvents() {
     document.querySelector("#export-backup-btn")
     .addEventListener("click", exportBackup);
+
+    document.querySelector("#import-backup-btn")
+    .addEventListener("click", () => {
+        document.querySelector("#import-backup-input").click();
+    });
+
+document.querySelector("#import-backup-input")
+    .addEventListener("change", importBackup);
     
     document.querySelector("#add-task-btn")
         .addEventListener("click", () => openModal());
