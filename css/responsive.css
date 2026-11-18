@@ -1,0 +1,79 @@
+
+@media (max-width: 1000px) {
+    .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .main-content {
+        padding: 28px;
+    }
+
+    .toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 650px) {
+    .app-shell {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .brand {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-label, .sidebar-note {
+        display: none;
+    }
+
+    .navigation {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        padding: 10px;
+    }
+
+    .main-content {
+        padding: 22px 15px;
+    }
+
+    .topbar h1 {
+        font-size: 24px;
+    }
+
+    .summary-grid {
+        gap: 10px;
+        margin: 25px 0;
+    }
+
+    .summary-card {
+        padding: 15px;
+    }
+
+    .tasks-section {
+        padding: 18px 13px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .task-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
