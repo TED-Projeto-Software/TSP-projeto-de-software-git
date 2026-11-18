@@ -55,8 +55,8 @@ Em revisão
 Feito
 Cada atividade possui um responsável e será movimentada conforme o andamento do projeto.
 
-Como acessar o produto
-[...]
+Como acessar o projeto
+[https://ted-projeto-software.github.io/TSP-projeto-de-software-git/#anotacoes]
 
 Planejamento
 Planilha de planejamento:
