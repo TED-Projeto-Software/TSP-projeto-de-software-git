@@ -6,21 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#fff7fa">
     <meta name="description" content="DevCafé: organize suas tarefas com leveza, carinho e produtividade.">
-
     <title>DevCafé | Seu espaço de produtividade</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/app.js"></script>
 </head>
-
 <body>
     <div class="app-shell">
-
         <aside class="sidebar">
             <a class="brand" href="#inicio">
                 <span class="brand-mark">☕</span>
@@ -29,13 +25,11 @@
 
             <div class="sidebar-content">
                 <p class="sidebar-label">ESPAÇO DE TRABALHO</p>
-
                 <nav class="navigation" aria-label="Navegação principal">
                     <a class="nav-link active" href="#inicio">
                         <span class="nav-icon">⌂</span>
                         <span>Visão geral</span>
                     </a>
-
                     <a class="nav-link" href="#tarefas">
                         <span class="nav-icon">▤</span>
                         <span>Minhas tarefas</span>
@@ -55,18 +49,14 @@
         </aside>
 
         <main class="main-content" id="inicio">
-
             <header class="topbar">
                 <div class="welcome">
                     <p class="eyebrow">SEU ESPAÇO DE PRODUTIVIDADE</p>
                     <h1>Olá, vamos produzir? <span>♡</span></h1>
                     <p class="subtitle">Organize suas ideias e faça acontecer, um passo de cada vez.</p>
                 </div>
-
                 <div class="topbar-decoration" aria-hidden="true">
-                    <span>✿</span>
-                    <span>♡</span>
-                    <span>✧</span>
+                    <span>✿</span><span>♡</span><span>✧</span>
                 </div>
             </header>
 
@@ -125,19 +115,16 @@
                         <h3>Continue assim!</h3>
                         <p class="progress-description">Cada tarefa concluída é uma conquista.</p>
                     </div>
-
                     <strong id="progress-percentage">0%</strong>
                 </div>
 
-                <div
-                    class="progress-track"
-                    role="progressbar"
-                    aria-label="Progresso das tarefas"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    id="progress-track"
-                >
+                <div class="progress-track"
+                     role="progressbar"
+                     aria-label="Progresso das tarefas"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     aria-valuenow="0"
+                     id="progress-track">
                     <div class="progress-fill" id="progress-fill"></div>
                 </div>
 
@@ -151,9 +138,7 @@
                     <div>
                         <p class="eyebrow">ORGANIZE SEU DIA</p>
                         <h2>Minhas tarefas <span>✿</span></h2>
-                        <p class="section-description">
-                            Tudo o que você precisa fazer, em um só lugar.
-                        </p>
+                        <p class="section-description">Tudo o que você precisa fazer, em um só lugar.</p>
                     </div>
 
                     <button class="primary-button" id="add-task-btn" type="button">
@@ -164,12 +149,24 @@
                 <div class="toolbar">
                     <label class="search-box">
                         <span class="search-icon" aria-hidden="true">⌕</span>
-                        <input
-                            id="search-input"
-                            type="search"
-                            placeholder="Buscar tarefas..."
-                            aria-label="Buscar tarefas"
-                        >
+                        <input id="search-input"
+                               type="search"
+                               placeholder="Buscar tarefas..."
+                               aria-label="Buscar tarefas">
+                    </label>
+
+                    <label class="category-filter-wrap">
+                        <span class="visually-hidden">Filtrar por categoria</span>
+                        <select id="category-filter"
+                                class="category-filter"
+                                aria-label="Filtrar por categoria">
+                            <option value="all">Todas as categorias</option>
+                            <option value="study">Estudos</option>
+                            <option value="work">Trabalho</option>
+                            <option value="personal">Pessoal</option>
+                            <option value="project">Projetos</option>
+                            <option value="other">Outros</option>
+                        </select>
                     </label>
 
                     <div class="filters" aria-label="Filtrar tarefas">
@@ -180,15 +177,13 @@
                     </div>
                 </div>
 
-                <div class="task-list" id="task-list" aria-live="polite">
-                </div>
+                <div class="task-list" id="task-list" aria-live="polite"></div>
             </section>
 
             <footer class="footer">
                 <span>DevCafé</span>
                 <span>Feito com carinho e um pouquinho de café ☕</span>
             </footer>
-
         </main>
     </div>
 
@@ -200,38 +195,41 @@
                     <h2 id="dialog-title">Nova tarefa</h2>
                     <p>Vamos adicionar mais uma conquista?</p>
                 </div>
-
-                <button
-                    class="icon-button"
-                    id="close-dialog-btn"
-                    type="button"
-                    aria-label="Fechar janela"
-                >×</button>
+                <button class="icon-button" id="close-dialog-btn"
+                        type="button" aria-label="Fechar janela">×</button>
             </div>
 
             <input type="hidden" id="task-id">
 
             <div class="form-field">
                 <label for="task-title">Nome da tarefa</label>
-                <input
-                    id="task-title"
-                    name="title"
-                    type="text"
-                    maxlength="100"
-                    placeholder="Ex.: Estudar JavaScript"
-                    required
-                >
+                <input id="task-title" name="title" type="text"
+                       maxlength="100" placeholder="Ex.: Estudar JavaScript" required>
             </div>
 
             <div class="form-field">
                 <label for="task-description">Descrição</label>
-                <textarea
-                    id="task-description"
-                    name="description"
-                    rows="3"
-                    maxlength="500"
-                    placeholder="Adicione alguns detalhes..."
-                ></textarea>
+                <textarea id="task-description" name="description"
+                          rows="3" maxlength="500"
+                          placeholder="Adicione alguns detalhes..."></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="task-category">Categoria</label>
+                    <select id="task-category" name="category">
+                        <option value="study">Estudos</option>
+                        <option value="work">Trabalho</option>
+                        <option value="personal">Pessoal</option>
+                        <option value="project">Projetos</option>
+                        <option value="other">Outros</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="task-due-date">Prazo (opcional)</label>
+                    <input id="task-due-date" name="dueDate" type="date">
+                </div>
             </div>
 
             <div class="form-row">
@@ -258,7 +256,6 @@
                 <button class="secondary-button" id="cancel-dialog-btn" type="button">
                     Cancelar
                 </button>
-
                 <button class="primary-button" type="submit">
                     Salvar tarefa
                 </button>
