@@ -18,6 +18,7 @@ let currentFilter = "all";
 const taskList = document.querySelector("#task-list");
 const taskForm = document.querySelector("#task-form");
 const searchInput = document.querySelector("#search-input");
+const categoryFilter = document.querySelector("#category-filter");
 
 const statusLabels = {
     pending: "Pendente",
@@ -37,6 +38,14 @@ const priorityClasses = {
     high: "priority-high"
 };
 
+const categoryLabels = {
+    study: "Estudos",
+    work: "Trabalho",
+    personal: "Pessoal",
+    project: "Projetos",
+    other: "Outros"
+};
+
 function persistTasks() {
     try {
         saveTasks(tasks);
@@ -44,6 +53,26 @@ function persistTasks() {
         console.error("Erro ao salvar tarefas:", error);
         showNotification("Não foi possível salvar. Verifique o armazenamento do navegador.");
     }
+}
+
+function formatDueDate(value) {
+    if (!value) return "";
+
+    const [year, month, day] = value.split("-");
+    return `${day}/${month}/${year}`;
+}
+
+function isOverdue(task) {
+    if (!task.dueDate || task.status === "completed") {
+        return false;
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const dueDate = new Date(`${task.dueDate}T00:00:00`);
+
+    return dueDate < today;
 }
 
 function updateSummary() {
@@ -105,17 +134,13 @@ function renderAxolotl() {
 
                 <ellipse cx="48" cy="58" rx="3.5" ry="4.5" fill="#654B5C"/>
                 <ellipse cx="72" cy="58" rx="3.5" ry="4.5" fill="#654B5C"/>
-
                 <path d="M55 68 Q60 73 65 68" stroke="#BD7197" stroke-width="2.5" stroke-linecap="round"/>
-
                 <circle cx="40" cy="69" r="5" fill="#EFAFCB" opacity=".65"/>
                 <circle cx="80" cy="69" r="5" fill="#EFAFCB" opacity=".65"/>
 
                 <path d="M47 88 Q60 82 73 88 L71 99 Q60 105 49 99Z"
                       fill="#FFFFFF" stroke="#D985AD" stroke-width="2"/>
-
                 <path d="M48 91 H72" stroke="#D985AD" stroke-width="2"/>
-
                 <path d="M75 89 L83 82" stroke="#D985AD" stroke-width="3" stroke-linecap="round"/>
 
                 <path d="M60 12 L63 17 L69 18 L64 22 L65 28 L60 24 L55 28 L56 22 L51 18 L57 17Z"
@@ -128,6 +153,8 @@ function renderAxolotl() {
 function renderEmptyState() {
     const hasTasks = tasks.length > 0;
     const isSearching = searchInput.value.trim().length > 0;
+    const isCategoryFiltered = categoryFilter.value !== "all";
+    const isStatusFiltered = currentFilter !== "all";
 
     let title = "Seu cantinho está tranquilo!";
     let description = "Adicione sua primeira tarefa e comece a organizar suas ideias.";
@@ -135,9 +162,9 @@ function renderEmptyState() {
     if (isSearching) {
         title = "Nenhum resultado encontrado";
         description = "Tente pesquisar com outras palavras.";
-    } else if (hasTasks) {
-        title = "Tudo tranquilo por aqui!";
-        description = "Não há tarefas nesta categoria no momento.";
+    } else if (hasTasks || isCategoryFiltered || isStatusFiltered) {
+        title = "Nada por aqui ainda!";
+        description = "Não encontramos tarefas com esses filtros.";
     }
 
     taskList.innerHTML = `
@@ -153,7 +180,8 @@ function renderTasks() {
     const visibleTasks = filterTasks(
         tasks,
         currentFilter,
-        searchInput.value
+        searchInput.value,
+        categoryFilter.value
     );
 
     updateSummary();
@@ -165,8 +193,15 @@ function renderTasks() {
 
     taskList.innerHTML = visibleTasks.map(task => {
         const priority = priorityLabels[task.priority] || "Média";
-        const priorityClass = priorityClasses[task.priority] || "priority-medium";
+        const priorityClass =
+            priorityClasses[task.priority] || "priority-medium";
+
         const status = statusLabels[task.status] || "Pendente";
+        const category =
+            categoryLabels[task.category || "other"] || "Outros";
+
+        const dueDate = formatDueDate(task.dueDate);
+        const overdue = isOverdue(task);
 
         return `
             <article class="task-card" data-id="${escapeHTML(task.id)}">
@@ -183,6 +218,16 @@ function renderTasks() {
                         <span class="status">
                             ${status}
                         </span>
+
+                        <span class="category-tag">
+                            ${category}
+                        </span>
+
+                        ${dueDate ? `
+                            <span class="due-date ${overdue ? "overdue" : ""}">
+                                ${overdue ? "Atrasada · " : "Prazo · "}${dueDate}
+                            </span>
+                        ` : ""}
 
                         <span class="task-date">
                             Criada em ${formatDate(new Date(task.createdAt))}
@@ -201,13 +246,8 @@ function renderTasks() {
                         <option value="completed" ${task.status === "completed" ? "selected" : ""}>Concluída</option>
                     </select>
 
-                    <button type="button" data-action="edit">
-                        Editar
-                    </button>
-
-                    <button type="button" data-action="delete">
-                        Excluir
-                    </button>
+                    <button type="button" data-action="edit">Editar</button>
+                    <button type="button" data-action="delete">Excluir</button>
                 </div>
             </article>
         `;
@@ -223,7 +263,9 @@ function handleTaskSubmit(event) {
         title: document.querySelector("#task-title").value.trim(),
         description: document.querySelector("#task-description").value.trim(),
         priority: document.querySelector("#task-priority").value,
-        status: document.querySelector("#task-status").value
+        status: document.querySelector("#task-status").value,
+        category: document.querySelector("#task-category").value,
+        dueDate: document.querySelector("#task-due-date").value
     };
 
     if (!data.title) {
@@ -311,10 +353,10 @@ function initializeEvents() {
     taskForm.addEventListener("submit", handleTaskSubmit);
 
     taskList.addEventListener("click", handleTaskClick);
-
     taskList.addEventListener("change", handleTaskChange);
 
     searchInput.addEventListener("input", renderTasks);
+    categoryFilter.addEventListener("change", renderTasks);
 
     document.querySelectorAll(".filter-btn").forEach(button => {
         button.addEventListener("click", () => {
