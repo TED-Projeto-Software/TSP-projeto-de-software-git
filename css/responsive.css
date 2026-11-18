@@ -227,3 +227,17 @@
         font-size: 9px;
     }
 }
+
+
+/* Ajustes dos novos filtros em telas menores */
+
+@media (max-width: 650px) {
+    .category-filter-wrap {
+        width: 100%;
+    }
+
+    .category-filter {
+        min-height: 40px;
+    }
+}
+
