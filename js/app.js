@@ -6,6 +6,7 @@ import {
 import { renderStatistics } from "./statistics.js";
 import { loadTasks, saveTasks } from "./storage.js";
 import { initializeNotes } from "./notes.js";
+import { initializePomodoro } from "./pomodoro.js";
 
 import {
     renderKanban,
@@ -710,6 +711,7 @@ function initializeApp() {
     updateCurrentDate();
     initializeKanban();
     renderTasks();
+    initializePomodoro();
     }
 
 initializeApp();
