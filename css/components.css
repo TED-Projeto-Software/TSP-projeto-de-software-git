@@ -1092,3 +1092,114 @@
     font-weight: 700;
     text-transform: capitalize;
 }
+
+
+/* Área de backup */
+
+.backup-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 35px;
+    padding: 25px 28px;
+    border: 1px solid #F0DFEA;
+    border-radius: 20px;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 248, 252, 0.95),
+        rgba(242, 235, 251, 0.9)
+    );
+    box-shadow: 0 5px 18px rgba(101, 75, 92, 0.05);
+}
+
+.backup-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 220px;
+    flex: 1;
+}
+
+.backup-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: #F8DCE8;
+    color: #C879A0;
+    font-size: 25px;
+}
+
+.backup-info h2 {
+    margin: 4px 0 5px;
+    color: var(--color-heading);
+    font-size: 16px;
+}
+
+.backup-info p:last-child {
+    max-width: 420px;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.backup-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.backup-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font: 800 11px var(--font-body);
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.backup-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(101, 75, 92, 0.1);
+}
+
+.backup-button span {
+    font-size: 16px;
+}
+
+.backup-export {
+    background: #F8DCE8;
+    border-color: #F0C9DC;
+    color: #925C78;
+}
+
+.backup-import {
+    background: #E9DFF7;
+    border-color: #D9C9EF;
+    color: #75618F;
+}
+
+@media (max-width: 650px) {
+    .backup-section {
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .backup-actions {
+        width: 100%;
+    }
+
+    .backup-button {
+        flex: 1;
+    }
+}
