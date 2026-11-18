@@ -8,6 +8,12 @@ import { loadTasks, saveTasks } from "./storage.js";
 import { initializeNotes } from "./notes.js";
 
 import {
+    renderKanban,
+    initializeKanban
+} from "./kanban.js";
+
+
+import {
     createTask,
     updateTask,
     deleteTask,
@@ -192,6 +198,7 @@ function renderTasks() {
 
     updateSummary();
     window.devCafeTasks = tasks;
+    renderKanban(tasks);
     renderCalendar(tasks);
     renderStatistics(tasks);
 
@@ -487,6 +494,23 @@ function updateCurrentDate() {
 }
 
 function initializeEvents() {
+
+    
+document.addEventListener("devcafe:kanban-move", event => {
+    const { id, status } = event.detail;
+
+    if (!["pending", "progress", "completed"].includes(status)) {
+        return;
+    }
+
+    tasks = updateTask(tasks, id, { status });
+
+    persistTasks();
+    renderTasks();
+
+    showNotification("Tarefa movida no quadro! ♡");
+});
+
   
 const THEME_STORAGE_KEY = "devcafe-theme";
 
@@ -684,7 +708,8 @@ function initializeApp() {
     initializeCalendar();
     initializeNotes();
     updateCurrentDate();
+    initializeKanban();
     renderTasks();
-}
+    }
 
 initializeApp();
