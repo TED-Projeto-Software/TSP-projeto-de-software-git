@@ -1085,3 +1085,10 @@
     color: #B6A5B0;
 }
 
+.current-date {
+    margin: 8px 0 0;
+    color: var(--color-muted);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
