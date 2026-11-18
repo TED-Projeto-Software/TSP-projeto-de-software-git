@@ -64,28 +64,6 @@
                 <div class="topbar-decoration" aria-hidden="true">
                     <span>✿</span><span>♡</span><span>✧</span>
                 </div>
-                <button
-                    class="secondary-button"
-                    id="export-backup-btn"
-                    type="button"
-                >
-                    ↓ Exportar backup
-                </button>
-
-                <button
-                    class="secondary-button"
-                    id="import-backup-btn"
-                    type="button"
-                >
-                    ↑ Importar backup
-                </button>
-
-                <input
-                    type="file"
-                    id="import-backup-input"
-                    accept=".json,application/json"
-                    hidden
-                >
                 
             </header>
 
@@ -343,6 +321,45 @@
 
                 <div class="task-list" id="task-list" aria-live="polite"></div>
             </section>
+
+            
+<section class="backup-section">
+    <div class="backup-info">
+        <span class="backup-icon">♡</span>
+        <div>
+            <p class="eyebrow">SEUS DADOS</p>
+            <h2>Seu cantinho sempre seguro</h2>
+            <p>Guarde uma cópia das suas tarefas e anotações
+               ou restaure seus dados quando precisar.</p>
+        </div>
+    </div>
+
+    <div class="backup-actions">
+        <button
+            class="backup-button backup-export"
+            id="export-backup-btn"
+            type="button"
+        >
+            <span>↓</span> Exportar backup
+        </button>
+
+        <button
+            class="backup-button backup-import"
+            id="import-backup-btn"
+            type="button"
+        >
+            <span>↑</span> Importar backup
+        </button>
+
+        <input
+            type="file"
+            id="import-backup-input"
+            accept=".json,application/json"
+            hidden
+        >
+    </div>
+</section>
+
 
             <footer class="footer">
                 <span>DevCafé</span>
