@@ -3,9 +3,11 @@ export function createTask(data) {
     return {
         id: crypto.randomUUID(),
         title: data.title.trim(),
-        description: data.description.trim(),
+        description: (data.description || "").trim(),
         priority: data.priority,
         status: data.status,
+        category: data.category || "other",
+        dueDate: data.dueDate || "",
         createdAt: new Date().toISOString()
     };
 }
@@ -22,7 +24,7 @@ export function deleteTask(tasks, id) {
     return tasks.filter((task) => task.id !== id);
 }
 
-export function filterTasks(tasks, filter, search = "") {
+export function filterTasks(tasks, filter, search = "", category = "all") {
     const normalizedSearch = search.toLowerCase().trim();
 
     return tasks.filter((task) => {
@@ -30,9 +32,13 @@ export function filterTasks(tasks, filter, search = "") {
             filter === "all" || task.status === filter;
 
         const matchesSearch =
-            task.title.toLowerCase().includes(normalizedSearch) ||
-            task.description.toLowerCase().includes(normalizedSearch);
+            (task.title || "").toLowerCase().includes(normalizedSearch) ||
+            (task.description || "").toLowerCase().includes(normalizedSearch);
 
-        return matchesStatus && matchesSearch;
+        const matchesCategory =
+            category === "all" ||
+            (task.category || "other") === category;
+
+        return matchesStatus && matchesSearch && matchesCategory;
     });
 }
