@@ -5,6 +5,7 @@ import {
 } from "./calendar.js";
 import { renderStatistics } from "./statistics.js";
 import { loadTasks, saveTasks } from "./storage.js";
+import { initializeNotes } from "./notes.js";
 
 import {
     createTask,
@@ -391,6 +392,7 @@ function initializeEvents() {
 function initializeApp() {
     initializeEvents();
     initializeCalendar();
+    initializeNotes();
     renderTasks();
 }
 
