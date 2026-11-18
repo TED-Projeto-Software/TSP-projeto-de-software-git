@@ -122,4 +122,7 @@ export function initializeCalendar() {
         selectedDate = button.dataset.date;
         renderCalendar(window.devCafeTasks || []);
     });
+    export function getSelectedCalendarDate() {
+    return selectedDate;
+}
 }
