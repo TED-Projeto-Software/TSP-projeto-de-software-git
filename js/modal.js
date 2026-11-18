@@ -15,7 +15,7 @@ export function openModal(task = null, selectedDueDate = "") {
         task?.category || "other";
 
     document.querySelector("#task-due-date").value =
-        task?.dueDate || "";
+    task?.dueDate || selectedDueDate || "";
 
     document.querySelector("#task-priority").value =
         task?.priority || "medium";
