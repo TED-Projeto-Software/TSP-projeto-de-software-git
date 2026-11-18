@@ -1,0 +1,448 @@
+
+/* ========================================
+   DEVCAFÉ — TEMA ESCURO LAVENDER NIGHT
+======================================== */
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --color-background: #171522;
+    --color-surface: #211D2D;
+    --color-surface-soft: #292438;
+
+    --color-pink-light: #3A304B;
+    --color-pink: #B9A0F5;
+    --color-pink-dark: #A98BEA;
+    --color-pink-deep: #D2C2FF;
+
+    --color-lavender: #39304D;
+    --color-lavender-dark: #A98BEA;
+
+    --color-text: #E5DDF0;
+    --color-heading: #F4EEFF;
+    --color-muted: #B0A5C1;
+
+    --color-success: #8BC5A0;
+    --color-success-light: #263D32;
+
+    --color-warning: #E0B66F;
+    --color-warning-light: #443725;
+
+    --color-danger: #E69AAA;
+    --color-danger-light: #482D39;
+
+    --color-border: #393149;
+    --color-border-strong: #514565;
+
+    --shadow-soft: 0 5px 20px rgba(0, 0, 0, 0.16);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 14px 35px rgba(0, 0, 0, 0.26);
+}
+
+/* Fundo geral */
+
+:root[data-theme="dark"] body {
+    background-color: #171522;
+    background-image:
+        radial-gradient(
+            ellipse at 8% 8%,
+            rgba(113, 85, 158, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            ellipse at 92% 18%,
+            rgba(83, 65, 121, 0.2),
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 75% 85%,
+            rgba(137, 108, 187, 0.11),
+            transparent 28%
+        );
+    color: var(--color-text);
+}
+
+/* Barra lateral */
+
+:root[data-theme="dark"] .sidebar {
+    background: linear-gradient(180deg, #241E32, #201B2D);
+    border-right-color: #393149;
+}
+
+:root[data-theme="dark"] .brand-mark,
+:root[data-theme="dark"] .nav-link.active {
+    background: #342B46;
+    color: var(--color-pink-deep);
+}
+
+:root[data-theme="dark"] .nav-link {
+    color: #B8ACC9;
+}
+
+:root[data-theme="dark"] .nav-link:hover {
+    background: #30283F;
+    color: var(--color-pink-deep);
+}
+
+:root[data-theme="dark"] .nav-icon,
+:root[data-theme="dark"] .sidebar-decoration {
+    background: rgba(190, 166, 235, 0.09);
+}
+
+:root[data-theme="dark"] .sidebar-decoration {
+    border-color: #403650;
+}
+
+:root[data-theme="dark"] .sidebar-decoration p {
+    color: #B9ADC9;
+}
+
+/* Painéis e cartões */
+
+:root[data-theme="dark"] .progress-panel,
+:root[data-theme="dark"] .summary-card,
+:root[data-theme="dark"] .tasks-section,
+:root[data-theme="dark"] .calendar-panel,
+:root[data-theme="dark"] .statistics-panel,
+:root[data-theme="dark"] .notes-section {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] .progress-panel {
+    background: linear-gradient(110deg, #211D2D, #292238);
+}
+
+:root[data-theme="dark"] .summary-card {
+    background: #252033;
+}
+
+:root[data-theme="dark"] .card-total {
+    --card-decoration: #49364E;
+}
+
+:root[data-theme="dark"] .card-pending {
+    --card-decoration: #403653;
+}
+
+:root[data-theme="dark"] .card-progress {
+    --card-decoration: #4A3E38;
+}
+
+:root[data-theme="dark"] .card-completed {
+    --card-decoration: #30473D;
+}
+
+:root[data-theme="dark"] .task-card,
+:root[data-theme="dark"] .statistics-small-card {
+    background: #292437;
+    border-color: var(--color-border);
+}
+
+:root[data-theme="dark"] .task-card:hover {
+    border-color: var(--color-border-strong);
+}
+
+/* Campos de pesquisa e formulários */
+
+:root[data-theme="dark"] .search-box,
+:root[data-theme="dark"] .category-filter,
+:root[data-theme="dark"] .status-select,
+:root[data-theme="dark"] .task-actions button,
+:root[data-theme="dark"] .task-dialog input,
+:root[data-theme="dark"] .task-dialog textarea,
+:root[data-theme="dark"] .task-dialog select,
+:root[data-theme="dark"] .note-dialog input,
+:root[data-theme="dark"] .note-dialog textarea,
+:root[data-theme="dark"] .note-dialog select {
+    background: #1C1928;
+    border-color: var(--color-border-strong);
+    color: var(--color-text);
+}
+
+:root[data-theme="dark"] .search-box input {
+    color: var(--color-text);
+}
+
+:root[data-theme="dark"] .search-box input::placeholder,
+:root[data-theme="dark"] .task-dialog input::placeholder,
+:root[data-theme="dark"] .task-dialog textarea::placeholder,
+:root[data-theme="dark"] .note-dialog input::placeholder,
+:root[data-theme="dark"] .note-dialog textarea::placeholder {
+    color: #8F849F;
+}
+
+/* Botões */
+
+:root[data-theme="dark"] .filter-btn,
+:root[data-theme="dark"] .secondary-button,
+:root[data-theme="dark"] .icon-button {
+    background: #332B43;
+    color: #D2C2F5;
+}
+
+:root[data-theme="dark"] .filter-btn:hover,
+:root[data-theme="dark"] .filter-btn.active,
+:root[data-theme="dark"] .secondary-button:hover,
+:root[data-theme="dark"] .icon-button:hover {
+    background: #493B60;
+    color: #F0E8FF;
+}
+
+:root[data-theme="dark"] .primary-button {
+    background: linear-gradient(135deg, #A98BEA, #8E70D0);
+    color: #1D1729;
+    box-shadow: 0 5px 13px rgba(169, 139, 234, 0.18);
+}
+
+:root[data-theme="dark"] .primary-button:hover {
+    background: linear-gradient(135deg, #BBA4F2, #9B7DE0);
+}
+
+/* Etiquetas de prioridade */
+
+:root[data-theme="dark"] .priority-low {
+    background: #294235;
+    color: #A5D8B6;
+}
+
+:root[data-theme="dark"] .priority-medium {
+    background: #493B27;
+    color: #F0CB88;
+}
+
+:root[data-theme="dark"] .priority-high {
+    background: #4A2D3A;
+    color: #F0A9B8;
+}
+
+:root[data-theme="dark"] .status,
+:root[data-theme="dark"] .category-tag {
+    background: #403452;
+    color: #D0BDF6;
+}
+
+:root[data-theme="dark"] .task-date {
+    background: #332D40;
+    color: #B7ABC8;
+}
+
+:root[data-theme="dark"] .due-date {
+    background: #493B27;
+    color: #F0CB88;
+}
+
+:root[data-theme="dark"] .due-date.overdue {
+    background: #4A2D3A;
+    color: #F0A9B8;
+}
+
+/* Calendário */
+
+:root[data-theme="dark"] .calendar-navigation button {
+    background: #30283F;
+    color: var(--color-pink-deep);
+}
+
+:root[data-theme="dark"] .calendar-day:hover {
+    background: #332B43;
+}
+
+:root[data-theme="dark"] .calendar-day.selected {
+    background: var(--color-pink-dark);
+    color: #1D1729;
+}
+
+:root[data-theme="dark"] .calendar-task {
+    border-bottom-color: #393149;
+}
+
+/* Estatísticas */
+
+:root[data-theme="dark"] .statistics-highlight {
+    background: linear-gradient(135deg, #332940, #2B263B);
+    border-color: #4A3B5D;
+}
+
+:root[data-theme="dark"] .category-stat-track,
+:root[data-theme="dark"] .progress-track {
+    background: #393149;
+}
+
+/* Janelas de edição */
+
+:root[data-theme="dark"] .task-dialog,
+:root[data-theme="dark"] .note-dialog {
+    background: #211D2D;
+    border-color: var(--color-border-strong);
+    color: var(--color-text);
+}
+
+:root[data-theme="dark"] .task-dialog::backdrop,
+:root[data-theme="dark"] .note-dialog::backdrop {
+    background: rgba(8, 6, 15, 0.72);
+}
+
+/* Estado vazio */
+
+:root[data-theme="dark"] .empty-illustration {
+    background: linear-gradient(145deg, #403047, #342D4A);
+}
+
+/* Mural de anotações */
+
+:root[data-theme="dark"] .note-pink {
+    background: #493141;
+}
+
+:root[data-theme="dark"] .note-lavender {
+    background: #3D3454;
+}
+
+:root[data-theme="dark"] .note-yellow {
+    background: #49402D;
+}
+
+:root[data-theme="dark"] .note-blue {
+    background: #2D3F50;
+}
+
+:root[data-theme="dark"] .note-card h3,
+:root[data-theme="dark"] .note-card p,
+:root[data-theme="dark"] .note-actions button {
+    color: #F0E9F8;
+}
+
+:root[data-theme="dark"] .note-actions {
+    border-top-color: rgba(230, 220, 245, 0.16);
+}
+
+:root[data-theme="dark"] .note-actions button {
+    background: rgba(20, 16, 30, 0.35);
+}
+
+:root[data-theme="dark"] .note-actions button:hover {
+    background: rgba(20, 16, 30, 0.6);
+}
+
+/* Backup */
+
+:root[data-theme="dark"] .backup-section {
+    background: linear-gradient(120deg, #292238, #302941);
+    border-color: #493B5D;
+}
+
+:root[data-theme="dark"] .backup-icon {
+    background: #493B60;
+    color: #D7C6FF;
+}
+
+:root[data-theme="dark"] .backup-export {
+    background: #49364F;
+    border-color: #654A70;
+    color: #F0DDFB;
+}
+
+:root[data-theme="dark"] .backup-import {
+    background: #3D3458;
+    border-color: #574879;
+    color: #E0D3FF;
+}
+
+/* Notificações */
+
+:root[data-theme="dark"] .toast {
+    background: #44365B;
+    color: #F5EEFF;
+    border-color: #63517F;
+}
+
+/* Acessibilidade */
+
+:root[data-theme="dark"] button:focus-visible,
+:root[data-theme="dark"] a:focus-visible,
+:root[data-theme="dark"] input:focus-visible,
+:root[data-theme="dark"] textarea:focus-visible,
+:root[data-theme="dark"] select:focus-visible {
+    outline-color: rgba(185, 160, 245, 0.65);
+}
+
+/* ========================================
+   BOTÃO DE ALTERNÂNCIA DE TEMA
+======================================== */
+
+.topbar-tools {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 9px 13px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: 700 11px var(--font-body);
+    box-shadow: var(--shadow-soft);
+    transition: background var(--transition),
+                border-color var(--transition),
+                transform var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-pink-dark);
+    background: var(--color-pink-light);
+}
+
+.theme-toggle-icon {
+    font-size: 17px;
+    line-height: 1;
+}
+
+:root[data-theme="dark"] .theme-toggle {
+    background: #332B43;
+    border-color: #514565;
+    color: #E4D8FF;
+}
+
+:root[data-theme="dark"] .theme-toggle:hover {
+    background: #493B60;
+}
+
+/* Responsividade do botão */
+
+@media (max-width: 700px) {
+    .topbar-tools {
+        align-items: flex-end;
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .topbar-decoration {
+        gap: 8px;
+        font-size: 18px;
+    }
+
+    .theme-toggle {
+        min-height: 37px;
+        padding: 8px 11px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar-tools {
+        align-items: flex-start;
+    }
+
+    .topbar-decoration {
+        display: none;
+    }
+}
