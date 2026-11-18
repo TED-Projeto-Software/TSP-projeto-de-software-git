@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevCafé - Organize suas tarefas com leveza e produtividade.">
+    <title>DevCafé | Seu cantinho de produtividade</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="app">
+        <h1>DevCafé ☕</h1>
+        <p>Seu cantinho de organização e produtividade.</p>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevCafé: seu cantinho de organização e produtividade.">
+    <title>DevCafé | Organize seu dia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/app.js"></script>
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#" aria-label="DevCafé, página inicial">
+                <span class="brand-icon">☕</span>
+                <span>DevCafé</span>
+            </a>
+
+            <p class="sidebar-label">MENU PRINCIPAL</p>
+            <nav class="navigation" aria-label="Menu principal">
+                <a class="nav-link active" href="#inicio">⌂ Visão geral</a>
+                <a class="nav-link" href="#tarefas">▤ Minhas tarefas</a>
+            </nav>
+
+            <div class="sidebar-note">
+                <span>🌷</span>
+                <p>Um passo de cada vez.<br>Você está indo bem!</p>
+            </div>
+        </aside>
+
+        <main class="main-content" id="inicio">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">SEU ESPAÇO DE PRODUTIVIDADE</p>
+                    <h1>Olá, desenvolvedor! <span>♡</span></h1>
+                    <p class="subtitle">Vamos organizar suas ideias hoje?</p>
+                </div>
+                <div class="profile-avatar" aria-label="Perfil">🌸</div>
+            </header>
+
+            <section class="summary-grid" aria-label="Resumo das tarefas">
+                <article class="summary-card">
+                    <span class="summary-icon">📋</span>
+                    <p>Total de tarefas</p>
+                    <strong id="total-tasks">0</strong>
+                </article>
+                <article class="summary-card">
+                    <span class="summary-icon">☁️</span>
+                    <p>Pendentes</p>
+                    <strong id="pending-tasks">0</strong>
+                </article>
+                <article class="summary-card">
+                    <span class="summary-icon">🌷</span>
+                    <p>Em andamento</p>
+                    <strong id="progress-tasks">0</strong>
+                </article>
+                <article class="summary-card">
+                    <span class="summary-icon">✨</span>
+                    <p>Concluídas</p>
+                    <strong id="completed-tasks">0</strong>
+                </article>
+            </section>
+
+            <section class="tasks-section" id="tarefas">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">SEU PLANEJAMENTO</p>
+                        <h2>Minhas tarefas</h2>
+                    </div>
+                    <button class="primary-button" id="add-task-btn" type="button">
+                        + Nova tarefa
+                    </button>
+                </div>
+
+                <div class="toolbar">
+                    <label class="search-box">
+                        <span aria-hidden="true">⌕</span>
+                        <input id="search-input" type="search" placeholder="Buscar uma tarefa..." aria-label="Buscar tarefas">
+                    </label>
+
+                    <div class="filters" aria-label="Filtrar tarefas">
+                        <button class="filter-btn active" data-filter="all" type="button">Todas</button>
+                        <button class="filter-btn" data-filter="pending" type="button">Pendentes</button>
+                        <button class="filter-btn" data-filter="progress" type="button">Em andamento</button>
+                        <button class="filter-btn" data-filter="completed" type="button">Concluídas</button>
+                    </div>
+                </div>
+
+                <div class="task-list" id="task-list" aria-live="polite">
+                    <div class="empty-state">
+                        <span>🌷</span>
+                        <h3>Seu cantinho está tranquilo!</h3>
+                        <p>Adicione uma tarefa para começar sua organização.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="footer">
+                Feito com carinho e um pouquinho de café ☕
+            </footer>
+        </main>
+    </div>
+
+    <dialog class="task-dialog" id="task-dialog">
+        <form id="task-form">
+            <div class="dialog-heading">
+                <div>
+                    <p class="eyebrow">VAMOS PLANEJAR</p>
+                    <h2 id="dialog-title">Nova tarefa</h2>
+                </div>
+                <button class="icon-button" id="close-dialog-btn" type="button" aria-label="Fechar">×</button>
+            </div>
+
+            <input type="hidden" id="task-id">
+
+            <label for="task-title">Nome da tarefa</label>
+            <input id="task-title" name="title" type="text" maxlength="100" placeholder="Ex.: Estudar JavaScript" required>
+
+            <label for="task-description">Descrição</label>
+            <textarea id="task-description" name="description" rows="3" maxlength="500" placeholder="Adicione alguns detalhes..."></textarea>
+
+            <div class="form-row">
+                <div>
+                    <label for="task-priority">Prioridade</label>
+                    <select id="task-priority" name="priority">
+                        <option value="low">Baixa</option>
+                        <option value="medium" selected>Média</option>
+                        <option value="high">Alta</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="task-status">Status</label>
+                    <select id="task-status" name="status">
+                        <option value="pending">Pendente</option>
+                        <option value="progress">Em andamento</option>
+                        <option value="completed">Concluída</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="dialog-actions">
+                <button class="secondary-button" id="cancel-dialog-btn" type="button">Cancelar</button>
+                <button class="primary-button" type="submit">Salvar tarefa</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
