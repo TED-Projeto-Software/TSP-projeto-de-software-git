@@ -1,24 +1,52 @@
 
 :root {
+    /* Cores principais */
     --color-background: #FFF7FA;
     --color-surface: #FFFFFF;
+    --color-surface-soft: #FFFBFD;
+
     --color-pink-light: #F8DCE8;
     --color-pink: #EFAFCB;
     --color-pink-dark: #D985AD;
-    --color-lavender: #DCCBF4;
+    --color-pink-deep: #BD7197;
+
+    --color-lavender: #E9DDF8;
+    --color-lavender-dark: #BCA3DD;
+
+    /* Texto */
     --color-text: #654B5C;
+    --color-heading: #533B4B;
     --color-muted: #9A8492;
+
+    /* Estados */
+    --color-success: #7EAD91;
+    --color-success-light: #E6F2E9;
+
+    --color-warning: #C99A52;
+    --color-warning-light: #FFF2DD;
+
+    --color-danger: #C87586;
+    --color-danger-light: #FBE9ED;
+
+    /* Estrutura */
     --color-border: #F1E4EB;
-    --color-success: #8CBFA5;
-    --color-warning: #E8B86D;
-    --color-danger: #D98291;
+    --color-border-strong: #E9D4E0;
 
+    /* Tipografia */
     --font-heading: "Nunito", sans-serif;
-    --font-body: "Inter", sans-serif;
+    --font-body: "DM Sans", sans-serif;
 
+    /* Bordas */
     --radius-small: 10px;
-    --radius-medium: 18px;
-    --radius-large: 26px;
+    --radius-medium: 16px;
+    --radius-large: 23px;
+    --radius-pill: 999px;
 
-    --shadow-soft: 0 8px 25px rgba(101, 75, 92, 0.07);
+    /* Sombras */
+    --shadow-soft: 0 5px 20px rgba(101, 75, 92, 0.055);
+    --shadow-card: 0 10px 30px rgba(101, 75, 92, 0.07);
+    --shadow-hover: 0 14px 35px rgba(101, 75, 92, 0.11);
+
+    /* Transições */
+    --transition: 180ms ease;
 }
