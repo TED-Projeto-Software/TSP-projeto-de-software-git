@@ -29,7 +29,7 @@ function updateDisplay() {
     document.title = `${timerDisplay.textContent} | DevCafé`;
 }
 
-function updateTaskOptions() {
+export function refreshPomodoroTasks() {
     const tasks = window.devCafeTasks || [];
     const selectedValue = taskSelect.value;
 
@@ -109,7 +109,7 @@ export function initializePomodoro() {
     startButton.addEventListener("click", startTimer);
     resetButton.addEventListener("click", resetTimer);
 
-    updateTaskOptions();
+    refreshPomodoroTasks();
     updateDisplay();
 }
 
