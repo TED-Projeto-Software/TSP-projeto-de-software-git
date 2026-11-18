@@ -125,12 +125,14 @@ a {
     font-family: "Nunito", sans-serif;
     font-size: 25px;
     font-weight: 900;
-    letter-spacing: -1.2px;
+    letter-spacing: -1px;
     line-height: 1;
 }
 
-.brand-name span {
+.brand-name .brand-highlight {
     color: var(--color-pink-dark);
+    font-family: "Nunito", sans-serif;
+    font-weight: 900;
 }
 
 .sidebar-label {
