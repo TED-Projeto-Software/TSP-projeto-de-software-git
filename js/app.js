@@ -472,8 +472,22 @@ async function importBackup(event) {
     }
 }
 
+function updateCurrentDate() {
+    const dateElement = document.querySelector("#current-date");
+
+    const today = new Intl.DateTimeFormat("pt-BR", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    }).format(new Date());
+
+    dateElement.textContent =
+        today.charAt(0).toUpperCase() + today.slice(1);
+}
 
 function initializeEvents() {
+    
     document.querySelector("#export-backup-btn")
     .addEventListener("click", exportBackup);
 
@@ -528,6 +542,7 @@ function initializeApp() {
     initializeEvents();
     initializeCalendar();
     initializeNotes();
+    updateCurrentDate();
     renderTasks();
 }
 
