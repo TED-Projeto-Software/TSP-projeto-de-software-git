@@ -122,21 +122,15 @@ a {
 
 .brand-name {
     color: var(--color-heading);
-    font: 900 25px var(--font-heading);
-    letter-spacing: -1px;
+    font-family: "Nunito", sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1.2px;
+    line-height: 1;
 }
 
 .brand-name span {
     color: var(--color-pink-dark);
-}
-
-.sidebar-label,
-.eyebrow {
-    margin: 0;
-    color: var(--color-muted);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
 }
 
 .sidebar-label {
