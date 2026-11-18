@@ -135,7 +135,7 @@ Cada integrante registrará individualmente sua participação no projeto, inclu
 [https://docs.google.com/spreadsheets/d/1rZ-v3sibCkEmCcN_9HTzrqIf4H2wyGIt/edit?gid=1344183358#gid=1344183358]
 
 **Anamaria:**  
-[...]
+[https://docs.google.com/spreadsheets/d/1eIVFpBfRCs9e16JeHYSLPeCwF0i8AE9N/edit?gid=435336633#gid=435336633]
 
 **Maotse:**  
 [https://docs.google.com/spreadsheets/d/1lmkgwq25uMwhcAHctaUWgtQmciZGxbKn/edit?gid=1300173699#gid=1300173699]
