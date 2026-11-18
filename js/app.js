@@ -1,4 +1,8 @@
-import { renderCalendar, initializeCalendar } from "./calendar.js";
+import {
+    renderCalendar,
+    initializeCalendar,
+    getSelectedCalendarDate
+} from "./calendar.js";
 import { renderStatistics } from "./statistics.js";
 import { loadTasks, saveTasks } from "./storage.js";
 
@@ -347,6 +351,12 @@ function handleTaskChange(event) {
 function initializeEvents() {
     document.querySelector("#add-task-btn")
         .addEventListener("click", () => openModal());
+
+    document.querySelector("#calendar-add-task")
+    .addEventListener("click", () => {
+        const selectedDate = getSelectedCalendarDate();
+        openModal(null, selectedDate);
+    });
 
     document.querySelector("#close-dialog-btn")
         .addEventListener("click", closeModal);
