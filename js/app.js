@@ -623,6 +623,61 @@ document.querySelector("#import-backup-input")
     });
 }
 
+
+function applyTheme(theme) {
+    const isDark = theme === "dark";
+
+    document.documentElement.dataset.theme = isDark ? "dark" : "light";
+
+    const toggle = document.querySelector("#theme-toggle");
+
+    if (toggle) {
+        toggle.setAttribute("aria-pressed", String(isDark));
+        toggle.setAttribute(
+            "aria-label",
+            isDark ? "Ativar modo claro" : "Ativar modo escuro"
+        );
+
+        toggle.title = isDark ? "Ativar modo claro" : "Ativar modo escuro";
+
+        const icon = toggle.querySelector(".theme-toggle-icon");
+        const label = toggle.querySelector(".theme-toggle-label");
+
+        if (icon) icon.textContent = isDark ? "☀" : "☾";
+        if (label) label.textContent = isDark ? "Modo claro" : "Modo escuro";
+    }
+}
+
+function initializeTheme() {
+    let savedTheme = "light";
+
+    try {
+        savedTheme = localStorage.getItem("devcafe-theme") || "light";
+    } catch (error) {
+        console.warn("Erro ao carregar tema:", error);
+    }
+
+    applyTheme(savedTheme);
+
+    const toggle = document.querySelector("#theme-toggle");
+
+    if (toggle) {
+        toggle.addEventListener("click", () => {
+            const currentTheme = document.documentElement.dataset.theme;
+            const nextTheme = currentTheme === "dark" ? "light" : "dark";
+
+            applyTheme(nextTheme);
+
+            try {
+                localStorage.setItem("devcafe-theme", nextTheme);
+            } catch (error) {
+                console.warn("Erro ao salvar tema:", error);
+            }
+        });
+    }
+}
+
+
 function initializeApp() {
     initializeTheme();
     initializeEvents();
