@@ -4,106 +4,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DevCafé: seu cantinho de organização e produtividade.">
-    <title>DevCafé | Organize seu dia</title>
+    <meta name="theme-color" content="#fff7fa">
+    <meta name="description" content="DevCafé: organize suas tarefas com leveza, carinho e produtividade.">
+
+    <title>DevCafé | Seu espaço de produtividade</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/app.js"></script>
 </head>
+
 <body>
     <div class="app-shell">
+
         <aside class="sidebar">
-            <a class="brand" href="#" aria-label="DevCafé, página inicial">
-                <span class="brand-icon">☕</span>
-                <span>DevCafé</span>
+            <a class="brand" href="#inicio">
+                <span class="brand-mark">☕</span>
+                <span class="brand-name">Dev<span>Café</span></span>
             </a>
 
-            <p class="sidebar-label">MENU PRINCIPAL</p>
-            <nav class="navigation" aria-label="Menu principal">
-                <a class="nav-link active" href="#inicio">⌂ Visão geral</a>
-                <a class="nav-link" href="#tarefas">▤ Minhas tarefas</a>
-            </nav>
+            <div class="sidebar-content">
+                <p class="sidebar-label">ESPAÇO DE TRABALHO</p>
 
-            <div class="sidebar-note">
-                <span>🌷</span>
-                <p>Um passo de cada vez.<br>Você está indo bem!</p>
+                <nav class="navigation" aria-label="Navegação principal">
+                    <a class="nav-link active" href="#inicio">
+                        <span class="nav-icon">⌂</span>
+                        <span>Visão geral</span>
+                    </a>
+
+                    <a class="nav-link" href="#tarefas">
+                        <span class="nav-icon">▤</span>
+                        <span>Minhas tarefas</span>
+                    </a>
+                </nav>
+
+                <div class="sidebar-decoration">
+                    <span class="decoration-flower">✿</span>
+                    <p>Pequenos passos também levam a grandes conquistas.</p>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <span class="online-indicator"></span>
+                Seu cantinho de produtividade
             </div>
         </aside>
 
         <main class="main-content" id="inicio">
+
             <header class="topbar">
-                <div>
+                <div class="welcome">
                     <p class="eyebrow">SEU ESPAÇO DE PRODUTIVIDADE</p>
-                    <h1>Olá, desenvolvedor! <span>♡</span></h1>
-                    <p class="subtitle">Vamos organizar suas ideias hoje?</p>
+                    <h1>Olá, vamos produzir? <span>♡</span></h1>
+                    <p class="subtitle">Organize suas ideias e faça acontecer, um passo de cada vez.</p>
                 </div>
-                <div class="profile-avatar" aria-label="Perfil">🌸</div>
+
+                <div class="topbar-decoration" aria-hidden="true">
+                    <span>✿</span>
+                    <span>♡</span>
+                    <span>✧</span>
+                </div>
             </header>
 
-            <section class="summary-grid" aria-label="Resumo das tarefas">
-                <article class="summary-card">
-                    <span class="summary-icon">📋</span>
-                    <p>Total de tarefas</p>
-                    <strong id="total-tasks">0</strong>
-                </article>
-                <article class="summary-card">
-                    <span class="summary-icon">☁️</span>
-                    <p>Pendentes</p>
-                    <strong id="pending-tasks">0</strong>
-                </article>
-                <article class="summary-card">
-                    <span class="summary-icon">🌷</span>
-                    <p>Em andamento</p>
-                    <strong id="progress-tasks">0</strong>
-                </article>
-                <article class="summary-card">
-                    <span class="summary-icon">✨</span>
-                    <p>Concluídas</p>
-                    <strong id="completed-tasks">0</strong>
-                </article>
+            <section class="summary-section" aria-label="Resumo das tarefas">
+                <div class="section-intro">
+                    <div>
+                        <p class="eyebrow">ACOMPANHE SEU RITMO</p>
+                        <h2>Seu progresso</h2>
+                    </div>
+                    <span class="today-label">Seu espaço, seu ritmo ♡</span>
+                </div>
+
+                <div class="summary-grid">
+                    <article class="summary-card card-total">
+                        <div class="summary-top">
+                            <span class="summary-icon">▤</span>
+                            <span class="summary-caption">GERAL</span>
+                        </div>
+                        <strong id="total-tasks">0</strong>
+                        <p>Total de tarefas</p>
+                    </article>
+
+                    <article class="summary-card card-pending">
+                        <div class="summary-top">
+                            <span class="summary-icon">◷</span>
+                            <span class="summary-caption">A FAZER</span>
+                        </div>
+                        <strong id="pending-tasks">0</strong>
+                        <p>Pendentes</p>
+                    </article>
+
+                    <article class="summary-card card-progress">
+                        <div class="summary-top">
+                            <span class="summary-icon">✿</span>
+                            <span class="summary-caption">EM CURSO</span>
+                        </div>
+                        <strong id="progress-tasks">0</strong>
+                        <p>Em andamento</p>
+                    </article>
+
+                    <article class="summary-card card-completed">
+                        <div class="summary-top">
+                            <span class="summary-icon">✓</span>
+                            <span class="summary-caption">FINALIZADAS</span>
+                        </div>
+                        <strong id="completed-tasks">0</strong>
+                        <p>Concluídas</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="progress-panel" aria-label="Progresso geral">
+                <div class="progress-info">
+                    <div>
+                        <p class="eyebrow">SUA JORNADA</p>
+                        <h3>Continue assim!</h3>
+                        <p class="progress-description">Cada tarefa concluída é uma conquista.</p>
+                    </div>
+
+                    <strong id="progress-percentage">0%</strong>
+                </div>
+
+                <div
+                    class="progress-track"
+                    role="progressbar"
+                    aria-label="Progresso das tarefas"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    id="progress-track"
+                >
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+
+                <p class="progress-footnote" id="progress-message">
+                    Seu progresso aparecerá aqui.
+                </p>
             </section>
 
             <section class="tasks-section" id="tarefas">
                 <div class="section-heading">
                     <div>
-                        <p class="eyebrow">SEU PLANEJAMENTO</p>
-                        <h2>Minhas tarefas</h2>
+                        <p class="eyebrow">ORGANIZE SEU DIA</p>
+                        <h2>Minhas tarefas <span>✿</span></h2>
+                        <p class="section-description">
+                            Tudo o que você precisa fazer, em um só lugar.
+                        </p>
                     </div>
+
                     <button class="primary-button" id="add-task-btn" type="button">
-                        + Nova tarefa
+                        <span>＋</span> Nova tarefa
                     </button>
                 </div>
 
                 <div class="toolbar">
                     <label class="search-box">
-                        <span aria-hidden="true">⌕</span>
-                        <input id="search-input" type="search" placeholder="Buscar uma tarefa..." aria-label="Buscar tarefas">
+                        <span class="search-icon" aria-hidden="true">⌕</span>
+                        <input
+                            id="search-input"
+                            type="search"
+                            placeholder="Buscar tarefas..."
+                            aria-label="Buscar tarefas"
+                        >
                     </label>
 
                     <div class="filters" aria-label="Filtrar tarefas">
-                        <button class="filter-btn active" data-filter="all" type="button">Todas</button>
-                        <button class="filter-btn" data-filter="pending" type="button">Pendentes</button>
-                        <button class="filter-btn" data-filter="progress" type="button">Em andamento</button>
-                        <button class="filter-btn" data-filter="completed" type="button">Concluídas</button>
+                        <button class="filter-btn active" data-filter="all" type="button" aria-pressed="true">Todas</button>
+                        <button class="filter-btn" data-filter="pending" type="button" aria-pressed="false">Pendentes</button>
+                        <button class="filter-btn" data-filter="progress" type="button" aria-pressed="false">Em andamento</button>
+                        <button class="filter-btn" data-filter="completed" type="button" aria-pressed="false">Concluídas</button>
                     </div>
                 </div>
 
                 <div class="task-list" id="task-list" aria-live="polite">
-                    <div class="empty-state">
-                        <span>🌷</span>
-                        <h3>Seu cantinho está tranquilo!</h3>
-                        <p>Adicione uma tarefa para começar sua organização.</p>
-                    </div>
                 </div>
             </section>
 
             <footer class="footer">
-                Feito com carinho e um pouquinho de café ☕
+                <span>DevCafé</span>
+                <span>Feito com carinho e um pouquinho de café ☕</span>
             </footer>
+
         </main>
     </div>
 
@@ -111,22 +196,46 @@
         <form id="task-form">
             <div class="dialog-heading">
                 <div>
-                    <p class="eyebrow">VAMOS PLANEJAR</p>
+                    <p class="eyebrow">SEU PLANEJAMENTO</p>
                     <h2 id="dialog-title">Nova tarefa</h2>
+                    <p>Vamos adicionar mais uma conquista?</p>
                 </div>
-                <button class="icon-button" id="close-dialog-btn" type="button" aria-label="Fechar">×</button>
+
+                <button
+                    class="icon-button"
+                    id="close-dialog-btn"
+                    type="button"
+                    aria-label="Fechar janela"
+                >×</button>
             </div>
 
             <input type="hidden" id="task-id">
 
-            <label for="task-title">Nome da tarefa</label>
-            <input id="task-title" name="title" type="text" maxlength="100" placeholder="Ex.: Estudar JavaScript" required>
+            <div class="form-field">
+                <label for="task-title">Nome da tarefa</label>
+                <input
+                    id="task-title"
+                    name="title"
+                    type="text"
+                    maxlength="100"
+                    placeholder="Ex.: Estudar JavaScript"
+                    required
+                >
+            </div>
 
-            <label for="task-description">Descrição</label>
-            <textarea id="task-description" name="description" rows="3" maxlength="500" placeholder="Adicione alguns detalhes..."></textarea>
+            <div class="form-field">
+                <label for="task-description">Descrição</label>
+                <textarea
+                    id="task-description"
+                    name="description"
+                    rows="3"
+                    maxlength="500"
+                    placeholder="Adicione alguns detalhes..."
+                ></textarea>
+            </div>
 
             <div class="form-row">
-                <div>
+                <div class="form-field">
                     <label for="task-priority">Prioridade</label>
                     <select id="task-priority" name="priority">
                         <option value="low">Baixa</option>
@@ -134,7 +243,8 @@
                         <option value="high">Alta</option>
                     </select>
                 </div>
-                <div>
+
+                <div class="form-field">
                     <label for="task-status">Status</label>
                     <select id="task-status" name="status">
                         <option value="pending">Pendente</option>
@@ -145,8 +255,13 @@
             </div>
 
             <div class="dialog-actions">
-                <button class="secondary-button" id="cancel-dialog-btn" type="button">Cancelar</button>
-                <button class="primary-button" type="submit">Salvar tarefa</button>
+                <button class="secondary-button" id="cancel-dialog-btn" type="button">
+                    Cancelar
+                </button>
+
+                <button class="primary-button" type="submit">
+                    Salvar tarefa
+                </button>
             </div>
         </form>
     </dialog>
