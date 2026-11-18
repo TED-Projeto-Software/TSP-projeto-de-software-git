@@ -234,6 +234,39 @@
                 </div>
             </section>
 
+            
+<!-- MURAL DE ANOTAÇÕES -->
+<section class="notes-section" id="anotacoes">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">SUAS IDEIAS E INSPIRAÇÕES</p>
+            <h2>Meu mural de anotações <span>♡</span></h2>
+            <p class="section-description">
+                Guarde lembretes, ideias e pensamentos importantes.
+            </p>
+        </div>
+
+        <button class="primary-button" id="add-note-btn" type="button">
+            ＋ Nova anotação
+        </button>
+    </div>
+
+    <div class="notes-toolbar">
+        <label class="search-box">
+            <span class="search-icon">⌕</span>
+            <input
+                type="search"
+                id="notes-search"
+                placeholder="Pesquisar anotações..."
+                aria-label="Pesquisar anotações"
+            >
+        </label>
+    </div>
+
+    <div class="notes-grid" id="notes-grid"></div>
+</section>
+
+            
             <!-- LISTA DE TAREFAS -->
             <section class="tasks-section" id="tarefas">
 
@@ -367,6 +400,73 @@
             </div>
         </form>
     </dialog>
+
+    
+<!-- MODAL DE ANOTAÇÕES -->
+<dialog class="note-dialog" id="note-dialog">
+    <form id="note-form">
+        <div class="dialog-heading">
+            <div>
+                <p class="eyebrow">SEU CANTINHO CRIATIVO</p>
+                <h2 id="note-dialog-title">Nova anotação</h2>
+                <p>Uma ideia de cada vez. ♡</p>
+            </div>
+
+            <button
+                class="icon-button"
+                id="close-note-dialog"
+                type="button"
+                aria-label="Fechar"
+            >×</button>
+        </div>
+
+        <input type="hidden" id="note-id">
+
+        <div class="form-field">
+            <label for="note-title">Título</label>
+            <input
+                id="note-title"
+                type="text"
+                maxlength="80"
+                placeholder="Ex.: Ideias para o projeto"
+                required
+            >
+        </div>
+
+        <div class="form-field">
+            <label for="note-content">Anotação</label>
+            <textarea
+                id="note-content"
+                rows="6"
+                maxlength="2000"
+                placeholder="Escreva suas ideias aqui..."
+            ></textarea>
+        </div>
+
+        <div class="form-field">
+            <label for="note-color">Cor do post-it</label>
+            <select id="note-color">
+                <option value="pink">Rosa</option>
+                <option value="lavender">Lavanda</option>
+                <option value="yellow">Amarelo</option>
+                <option value="blue">Azul</option>
+            </select>
+        </div>
+
+        <div class="dialog-actions">
+            <button
+                class="secondary-button"
+                id="cancel-note-dialog"
+                type="button"
+            >Cancelar</button>
+
+            <button class="primary-button" type="submit">
+                Salvar anotação
+            </button>
+        </div>
+    </form>
+</dialog>
+
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
