@@ -297,6 +297,58 @@
     <div class="kanban-board" id="kanban-board" aria-live="polite"></div>
 </section>
 
+            
+<!-- TEMPORIZADOR POMODORO -->
+<section class="pomodoro-section" id="pomodoro">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">RESPIRE, CONCENTRE-SE E CONTINUE</p>
+            <h2>Meu cantinho de foco <span>☕</span></h2>
+            <p class="section-description">
+                Um passo de cada vez. Faça uma pausa quando precisar.
+            </p>
+        </div>
+    </div>
+
+    <div class="pomodoro-panel">
+        <div class="pomodoro-decoration" aria-hidden="true">✿</div>
+
+        <p class="pomodoro-mode" id="pomodoro-mode">Hora de focar!</p>
+
+        <div class="pomodoro-clock" id="pomodoro-time" aria-live="off">
+            25:00
+        </div>
+
+        <p class="pomodoro-description">
+            25 minutos de concentração · 5 minutos de descanso
+        </p>
+
+        <div class="pomodoro-actions">
+            <button class="primary-button" id="pomodoro-start" type="button">
+                Iniciar
+            </button>
+
+            <button class="secondary-button" id="pomodoro-reset" type="button">
+                Reiniciar
+            </button>
+        </div>
+
+        <div class="pomodoro-task">
+            <label for="pomodoro-task">No que você vai trabalhar?</label>
+            <select id="pomodoro-task">
+                <option value="">Nenhuma tarefa selecionada</option>
+            </select>
+        </div>
+
+        <div class="pomodoro-session-count">
+            <span>♡</span>
+            Sessões de foco concluídas:
+            <strong id="pomodoro-sessions">0</strong>
+        </div>
+    </div>
+</section>
+
+
 
             
 <!-- MURAL DE ANOTAÇÕES -->
