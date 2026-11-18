@@ -133,6 +133,127 @@
                 </p>
             </section>
 
+            
+            <section class="progress-panel" aria-label="Progresso geral">
+                <div class="progress-info">
+                    <div>
+                        <p class="eyebrow">SUA JORNADA</p>
+                        <h3>Continue assim!</h3>
+                        <p class="progress-description">Cada tarefa concluída é uma conquista.</p>
+                    </div>
+                    <strong id="progress-percentage">0%</strong>
+                </div>
+
+                <div class="progress-track"
+                     role="progressbar"
+                     aria-label="Progresso das tarefas"
+                     aria-valuemin="0"
+                     aria-valuemax="100"
+                     aria-valuenow="0"
+                     id="progress-track">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+
+                <p class="progress-footnote" id="progress-message">
+                    Seu progresso aparecerá aqui.
+                </p>
+            </section>
+
+            <!-- CALENDÁRIO E ESTATÍSTICAS -->
+            <section class="insights-section">
+                <div class="section-intro">
+                    <div>
+                        <p class="eyebrow">PLANEJE E ACOMPANHE</p>
+                        <h2>Seu planejamento</h2>
+                    </div>
+                    <span class="today-label">Tudo no seu ritmo ♡</span>
+                </div>
+
+                <div class="insights-grid">
+
+                    <!-- CALENDÁRIO -->
+                    <section class="calendar-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">ORGANIZAÇÃO</p>
+                                <h3>Calendário</h3>
+                            </div>
+
+                            <div class="calendar-navigation">
+                                <button id="calendar-prev" type="button"
+                                        aria-label="Mês anterior">‹</button>
+                                <button id="calendar-next" type="button"
+                                        aria-label="Próximo mês">›</button>
+                            </div>
+                        </div>
+
+                        <div class="calendar-month" id="calendar-month"></div>
+
+                        <div class="calendar-weekdays">
+                            <span>Seg</span>
+                            <span>Ter</span>
+                            <span>Qua</span>
+                            <span>Qui</span>
+                            <span>Sex</span>
+                            <span>Sáb</span>
+                            <span>Dom</span>
+                        </div>
+
+                        <div class="calendar-grid" id="calendar-grid"></div>
+
+                        <div class="calendar-legend">
+                            <span class="calendar-legend-dot"></span>
+                            Dias com tarefas
+                        </div>
+
+                        <div class="calendar-day-details">
+                            <p class="eyebrow">TAREFAS DO DIA</p>
+                            <h4 id="selected-date-label"></h4>
+                            <div id="calendar-day-tasks"></div>
+                        </div>
+                    </section>
+
+                    <!-- ESTATÍSTICAS -->
+                    <section class="statistics-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">SEU DESEMPENHO</p>
+                                <h3>Estatísticas</h3>
+                            </div>
+                            <span class="statistics-decoration">✿</span>
+                        </div>
+
+                        <div class="statistics-highlight">
+                            <span>Taxa de conclusão</span>
+                            <strong id="stats-completed-rate">0%</strong>
+                            <p>Das suas tarefas já foram concluídas.</p>
+                        </div>
+
+                        <div class="statistics-small-grid">
+                            <div class="statistics-small-card">
+                                <span>Pendentes</span>
+                                <strong id="stats-pending">0</strong>
+                            </div>
+
+                            <div class="statistics-small-card overdue-stat">
+                                <span>Atrasadas</span>
+                                <strong id="stats-overdue">0</strong>
+                            </div>
+                        </div>
+
+                        <div class="category-statistics">
+                            <h4>Tarefas por categoria</h4>
+                            <div id="category-stats"></div>
+                        </div>
+                    </section>
+
+                </div>
+            </section>
+
+            <!-- LISTA DE TAREFAS -->
+            <section class="tasks-section" id="tarefas">
+
+
             <section class="tasks-section" id="tarefas">
                 <div class="section-heading">
                     <div>
