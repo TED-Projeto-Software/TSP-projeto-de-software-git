@@ -1,4 +1,4 @@
-
+ 
 const dialog = document.querySelector("#task-dialog");
 const form = document.querySelector("#task-form");
 
