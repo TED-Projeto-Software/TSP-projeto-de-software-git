@@ -9,6 +9,10 @@ import { initializeNotes } from "./notes.js";
 import { initializePomodoro } from "./pomodoro.js";
 
 import {
+    initializePomodoro,
+    refreshPomodoroTasks
+} from "./pomodoro.js";
+import {
     renderKanban,
     initializeKanban
 } from "./kanban.js";
@@ -200,6 +204,7 @@ function renderTasks() {
     updateSummary();
     window.devCafeTasks = tasks;
     renderKanban(tasks);
+    refreshPomodoroTasks();
     renderCalendar(tasks);
     renderStatistics(tasks);
 
