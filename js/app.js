@@ -1,4 +1,5 @@
-
+import { renderCalendar, initializeCalendar } from "./calendar.js";
+import { renderStatistics } from "./statistics.js";
 import { loadTasks, saveTasks } from "./storage.js";
 
 import {
@@ -185,6 +186,9 @@ function renderTasks() {
     );
 
     updateSummary();
+    window.devCafeTasks = tasks;
+    renderCalendar(tasks);
+    renderStatistics(tasks);
 
     if (visibleTasks.length === 0) {
         renderEmptyState();
@@ -376,6 +380,7 @@ function initializeEvents() {
 
 function initializeApp() {
     initializeEvents();
+    initializeCalendar();
     renderTasks();
 }
 
