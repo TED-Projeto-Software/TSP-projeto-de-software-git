@@ -118,7 +118,7 @@ function updateSummary() {
         ? "Adicione sua primeira tarefa para começar!"
         : percentage === 100
             ? "Parabéns! Todas as tarefas foram concluídas! ✨"
-            : `${completed} de ${total} tarefas concluídas. Continue assim!`;
+            : `${completed} de ${total} tarefas concluídas. Mantenha o foco!`;
 
     document.querySelector("#progress-message").textContent = message;
 }
