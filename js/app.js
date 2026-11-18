@@ -349,7 +349,51 @@ function handleTaskChange(event) {
     showNotification("Status atualizado! ♡");
 }
 
+function exportBackup() {
+    try {
+        const savedNotes = JSON.parse(
+            localStorage.getItem("devcafe-notes") || "[]"
+        );
+
+        const backup = {
+            application: "DevCafé",
+            version: 1,
+            exportedAt: new Date().toISOString(),
+            tasks: tasks,
+            notes: savedNotes
+        };
+
+        const content = JSON.stringify(backup, null, 4);
+
+        const blob = new Blob([content], {
+            type: "application/json"
+        });
+
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `devcafe-backup-${new Date()
+            .toISOString()
+            .slice(0, 10)}.json`;
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(url);
+
+        showNotification("Backup exportado com sucesso! ♡");
+    } catch (error) {
+        console.error("Erro ao exportar backup:", error);
+        showNotification("Não foi possível exportar o backup.");
+    }
+}
+
 function initializeEvents() {
+    document.querySelector("#export-backup-btn")
+    .addEventListener("click", exportBackup);
+    
     document.querySelector("#add-task-btn")
         .addEventListener("click", () => openModal());
 
